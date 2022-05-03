@@ -11,6 +11,10 @@
     flex-wrap: wrap;
     background-color: var(--secondary-color);
     padding: 0.5rem;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
 }
 
 .line-height-extra {
