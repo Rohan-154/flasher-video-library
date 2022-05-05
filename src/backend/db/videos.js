@@ -116,7 +116,7 @@ export const videos = [
     description:
       "Naruto protects the hidden leaf village from the six paths pain in an epic clash. Naruto unleashes nine-tails power.",
     catchName: "Hero of the village",
-    category: "fights",
+    category: "tiktok",
     uploaded: "Nov 17, 2021",
   },
 ];

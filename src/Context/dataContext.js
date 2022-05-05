@@ -8,6 +8,7 @@ const VideoProvider = ({ children }) => {
   const DatainitialState = {
     videos: [],
     categories: [],
+    sortBy: "All",
   };
   const [Datastate, Datadispatch] = useReducer(DataReducer, DatainitialState);
   useEffect(() => {
@@ -21,6 +22,10 @@ const VideoProvider = ({ children }) => {
       } catch (error) {
         console.log(error);
       }
+    })();
+  }, [Datadispatch]);
+  useEffect(() => {
+    (async () => {
       try {
         const catData = await getCategoryService();
         Datadispatch({
@@ -31,7 +36,7 @@ const VideoProvider = ({ children }) => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [Datadispatch]);
 
   return (
     <VideoContext.Provider value={{ Datadispatch, Datastate }}>
