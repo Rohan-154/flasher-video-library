@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "../Sidebar/sidebar.css";
 const Sidebar = () => {
-  const [sideBar, setSideBar] = useState(true);
+  const [sideBar, setSideBar] = useState(false);
   return (
     <>
-      <div className={`sidebar ${sideBar ? " open" : ""}`}>
+      <div className={`sidebar ${sideBar ? "open" : ""}`}>
         <div className="logo-details">
           <span>
             <i className="fa-solid fa-bolt icon"></i>
@@ -60,9 +60,6 @@ const Sidebar = () => {
           </li>
         </ul>
       </div>
-      <section className="home-section">
-        <div className="text">lorem300</div>
-      </section>
     </>
   );
 };
