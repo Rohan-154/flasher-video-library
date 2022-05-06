@@ -19,6 +19,9 @@
   justify-content: flex-start;
   margin-left: 5rem; 
 }
+.active-category{
+  background-color: var(--primary-color-dark);
+}
 @media screen and (max-width:450px) {
   .category-list{
     margin-top: 10rem;
