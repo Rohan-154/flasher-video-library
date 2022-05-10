@@ -1,0 +1,22 @@
+@media screen and (max-width:600px) {
+    .fix-footer-wrap {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: var(--primary-color-light);
+        z-index: 20;
+    }
+
+    .fix-footer-wrap .ul-fix-footer {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 1rem auto 0;
+    }
+    .fix-footer-wrap .ul-fix-footer li{
+        list-style: none;
+        height: 2rem;
+        font-size: 1.2rem;
+    
+    }
+}

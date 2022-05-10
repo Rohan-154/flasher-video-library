@@ -10,6 +10,14 @@ const DataReducer = (state, action) => {
       return { ...state, sortBy: action.payload };
     case Abbreviations.LOGOUT:
       return { ...state };
+    case Abbreviations.LIKE_VIDEO:
+      return {
+        ...state,
+        videos: state.videos.map((video) => ({
+          ...video,
+          isInLiked: action.payload.some((item) => item._id === video._id),
+        })),
+      };
   }
 };
 

@@ -10,6 +10,7 @@ const VideoProvider = ({ children }) => {
     videos: [],
     categories: [],
     sortBy: "All",
+    isInLiked : false,
   };
   const [Datastate, Datadispatch] = useReducer(DataReducer, DatainitialState);
   useEffect(() => {

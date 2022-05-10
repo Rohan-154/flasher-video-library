@@ -1,7 +1,6 @@
 figure.menu-card {
     color: var(--white-color);
     position: relative;
-    overflow: hidden;
     width: 100%;
     background-color: var(--white-color);
     text-align: left;
@@ -106,15 +105,46 @@ figure img {
     margin-top: 2rem;
 }
 
-.date-three-bars {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.container div,
+span,
+p,
+h2,
+h3,
+i {
+    color: var(--black-color);
 }
 
-.date-three-bars span {
-    cursor: pointer;
-    color: var(--black-color);
+.date-three-bars {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: max-content;
+    right: 0rem;
+    margin-top: 4.5rem;
+    margin-right: 0.3rem;
+}
+
+.options div {
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    background-color: var(--primary-color-light);
+    font-size: 0.9rem;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.display-none {
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
