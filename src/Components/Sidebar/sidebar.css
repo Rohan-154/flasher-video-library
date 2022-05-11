@@ -237,11 +237,11 @@
     font-size: 1.6rem;
 }
 
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
     .sidebar {
         top: 2rem;
     }
-}
+} */
 
 @media (max-width: 700px) {
     .home-section .text {
