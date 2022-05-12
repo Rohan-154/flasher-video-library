@@ -18,6 +18,14 @@ const DataReducer = (state, action) => {
           isInLiked: action.payload.some((item) => item._id === video._id),
         })),
       };
+    case Abbreviations.WATCH_LATER:
+      return {
+        ...state,
+        videos: state.videos.map((video) => ({
+          ...video,
+          isInWatchLater: action.payload.some((item) => item._id === video._id),
+        })),
+      };
   }
 };
 
