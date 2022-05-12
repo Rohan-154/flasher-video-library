@@ -3,8 +3,9 @@ import { useEffect, useReducer } from "react";
 import { DataReducer } from "../Reducer/video-reducer";
 import { Abbreviations } from "../services/abbreviations";
 import { getCategoryService, getVideoService } from "../services/dataservice";
-
+import { useFetch } from "../custom-hooks/useFetch";
 const VideoProvider = ({ children }) => {
+  const { data: video } = useFetch("/api/videos", "videos");
   const DatainitialState = {
     videos: [],
     categories: [],
@@ -12,18 +13,26 @@ const VideoProvider = ({ children }) => {
   };
   const [Datastate, Datadispatch] = useReducer(DataReducer, DatainitialState);
   useEffect(() => {
-    (async () => {
-      try {
-        const vidData = await getVideoService();
-        Datadispatch({
-          type: Abbreviations.INITIAL_VIDEOS,
-          payload: vidData.data.videos,
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [Datadispatch]);
+    // (async () => {
+    //   try {
+    //     const vidData = await getVideoService();
+    //     Datadispatch({
+    //       type: Abbreviations.INITIAL_VIDEOS,
+    //       payload: vidData.data.videos,
+    //     });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // })();
+  video && 
+    Datadispatch({
+      type: Abbreviations.INITIAL_VIDEOS,
+      payload: video,
+    });
+  }, [video]);
+
+
+  
   useEffect(() => {
     (async () => {
       try {

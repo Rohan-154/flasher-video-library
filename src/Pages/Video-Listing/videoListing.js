@@ -11,7 +11,6 @@ const VideoListing = () => {
     Datadispatch({ type: Abbreviations.SORT_BY, payload: catName });
   };
   const sortedCategory = SortedCategory(videos, sortBy);
-  console.log(videos);
   return (
     <>
       <Sidebar />
@@ -22,8 +21,8 @@ const VideoListing = () => {
               categories.map(({ _id, categoryName }) => (
                 <div
                   key={_id}
-                  className="category-single"
-                  onClick={()=> sortHandler(categoryName)}
+                  className={`category-single ${categoryName === sortBy && "active-category"}`}
+                  onClick={() => sortHandler(categoryName)}
                 >
                   {categoryName}
                 </div>
