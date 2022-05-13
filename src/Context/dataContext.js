@@ -13,26 +13,12 @@ const VideoProvider = ({ children }) => {
   };
   const [Datastate, Datadispatch] = useReducer(DataReducer, DatainitialState);
   useEffect(() => {
-    // (async () => {
-    //   try {
-    //     const vidData = await getVideoService();
-    //     Datadispatch({
-    //       type: Abbreviations.INITIAL_VIDEOS,
-    //       payload: vidData.data.videos,
-    //     });
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // })();
-  video && 
-    Datadispatch({
-      type: Abbreviations.INITIAL_VIDEOS,
-      payload: video,
-    });
+    video &&
+      Datadispatch({
+        type: Abbreviations.INITIAL_VIDEOS,
+        payload: video,
+      });
   }, [video]);
-
-
-  
   useEffect(() => {
     (async () => {
       try {
