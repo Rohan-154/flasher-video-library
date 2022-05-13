@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Login } from "./Components/Auth/Login/login";
 import { Navbar } from "./Components/Navbar/navbar";
 import { PrivateRoute } from "./Components/PrivateRoute/privateRoute";
+import { HistoryVideo } from "./Pages/History/history";
 import { LikedVideo } from "./Pages/Liked-Videos/likeVideo";
 import { SingleVideo } from "./Pages/Single-Video-Page/single-video";
 import { VideoListing } from "./Pages/Video-Listing/videoListing";
@@ -27,6 +28,14 @@ function App() {
           element={
             <PrivateRoute>
               <WatchLater />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/history"
+          element={
+            <PrivateRoute>
+              <HistoryVideo />
             </PrivateRoute>
           }
         />

@@ -26,6 +26,14 @@ const DataReducer = (state, action) => {
           isInWatchLater: action.payload.some((item) => item._id === video._id),
         })),
       };
+      case Abbreviations.ADD_TO_HISTORY:
+      return {
+        ...state,
+        videos: state.videos.map((video) => ({
+          ...video,
+          isInHistory: action.payload.some((item) => item._id === video._id),
+        })),
+      };
   }
 };
 

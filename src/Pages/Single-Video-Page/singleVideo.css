@@ -62,7 +62,19 @@
 .vid-content-wrapper {
     width: 70vw;
 }
-
+.Clear-all{
+  position: absolute;
+  right: 1rem;
+  background-color: var(--white-color);
+  padding: 0.3rem;
+  font-size: 1rem;
+  margin: 0rem 1rem;
+  cursor: pointer;
+}
+.Clear-all:hover{
+    background-color: var(--primary-color-light);
+    color: var(--black-color);
+}
 @media screen and (max-width:600px) {
     .single-wrapper {
         padding-top: 30%;

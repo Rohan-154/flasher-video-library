@@ -5,5 +5,6 @@ const Abbreviations = {
   LOGOUT: "logout",
   LIKE_VIDEO: "likeVideo",
   WATCH_LATER: "watchLater",
+  ADD_TO_HISTORY: "addToHistory",
 };
 export { Abbreviations };
