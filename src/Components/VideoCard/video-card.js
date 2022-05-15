@@ -21,6 +21,11 @@ const VideoCard = ({ video }) => {
     if (token) {
       setModal(true);
       setmodalData(video);
+    } else {
+      navigate("/login", {
+        replace: true,
+        state: { from: location.pathname },
+      });
     }
   };
   return (

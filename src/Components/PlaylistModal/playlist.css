@@ -1,0 +1,51 @@
+.modal-wrap {
+    background: #342e2ebf;
+    width: 100vw;
+    position: fixed;
+    height: 100vh;
+    z-index: 35;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white-color);
+    gap: 1.3rem;
+    padding: 1rem;
+    width: 22rem;
+    border-radius: 0.4rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-input input {
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    margin-left: 1rem;
+}
+
+.text-input:focus {
+    border: 2px solid var(--danger-message-color);
+}
+
+.btn-playlist {
+    width: 100%;
+    background-color: var(--primary-color-light);
+    outline: none;
+    border: none;
+    padding: 0.3rem;
+    color: var(--text-color);
+    font-weight: bolder;
+    font-size: 1rem;
+}
