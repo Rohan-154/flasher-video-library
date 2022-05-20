@@ -5,7 +5,9 @@ import { PlaylistModal } from "./Components/PlaylistModal/playlistmodal";
 import { PrivateRoute } from "./Components/PrivateRoute/privateRoute";
 import { HistoryVideo } from "./Pages/History/history";
 import { LikedVideo } from "./Pages/Liked-Videos/likeVideo";
+import Playlist from "./Pages/Playlist/playlist";
 import { SingleVideo } from "./Pages/Single-Video-Page/single-video";
+import { SinglePlay } from "./Pages/SinglePlaylistNav/singlePlay";
 import { VideoListing } from "./Pages/Video-Listing/videoListing";
 import { WatchLater } from "./Pages/WatchLater/watchLater";
 function App() {
@@ -39,6 +41,22 @@ function App() {
           element={
             <PrivateRoute>
               <HistoryVideo />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlist"
+          element={
+            <PrivateRoute>
+              <Playlist />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlist/:playlistId"
+          element={
+            <PrivateRoute>
+              <SinglePlay />
             </PrivateRoute>
           }
         />

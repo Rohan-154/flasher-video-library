@@ -8,7 +8,7 @@ import {
 
 const postPlaylistHandler = async (
   token,
-  Datadispatch,
+  dataDispatch,
   playListTitle,
   setShowInput
 ) => {
@@ -19,7 +19,7 @@ const postPlaylistHandler = async (
     console.log(playlists);
     setShowInput(false);
     playlists &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.CREATE_PLAYLIST,
         payload: playlists,
       });
@@ -28,13 +28,13 @@ const postPlaylistHandler = async (
   }
 };
 
-const deletePlaylistHandler = async (token, Datadispatch, videoId) => {
+const deletePlaylistHandler = async (token, dataDispatch, videoId) => {
   try {
     const {
       data: { playlists },
     } = await deletePlayListService(token, videoId);
     playlists &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.CREATE_PLAYLIST,
         payload: playlists,
       });
@@ -44,7 +44,7 @@ const deletePlaylistHandler = async (token, Datadispatch, videoId) => {
 };
 const postPlaylistVideoHandler = async (
   token,
-  Datadispatch,
+  dataDispatch,
   playListVideo,
   playListId
 ) => {
@@ -53,7 +53,7 @@ const postPlaylistVideoHandler = async (
       data: { playlist },
     } = await postPlayListVideoService(token, playListId, playListVideo);
     playlist &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.UPDATE_VIDEO_PLAYLIST,
         payload: playlist,
       });
@@ -62,13 +62,13 @@ const postPlaylistVideoHandler = async (
   }
 };
 
-const DeletePlaylistVideohandler = async (token, videoId, playListId) => {
+const DeletePlaylistVideohandler = async (token, videoId, playListId,dataDispatch) => {
   try {
     const {
       data: { playlist },
     } = await deletePlayListVideoService(token, videoId, playListId);
     playlist &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.UPDATE_VIDEO_PLAYLIST,
         payload: playlist,
       });

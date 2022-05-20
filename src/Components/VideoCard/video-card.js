@@ -9,13 +9,13 @@ const VideoCard = ({ video }) => {
   const [showOption, setShowOption] = useState(false);
   const navigate = useNavigate();
   const { token } = useAuth();
-  const { Datadispatch, setModal, setmodalData } = useVideo();
+  const { dataDispatch, setModal, setmodalData } = useVideo();
   const { _id, title, catchName, uploaded } = video;
   const singlePageNavigator = () => {
     navigate(`/video/${_id}`);
     token &&
       !video.isInHistory &&
-      postHistoryHandler(token, Datadispatch, video);
+      postHistoryHandler(token, dataDispatch, video);
   };
   const addToPlaylist = () => {
     if (token) {
@@ -58,7 +58,7 @@ const VideoCard = ({ video }) => {
                     token
                       ? watchLaterHandler(
                           token,
-                          Datadispatch,
+                          dataDispatch,
                           video,
                           video.isInWatchLater
                         )
@@ -72,7 +72,7 @@ const VideoCard = ({ video }) => {
                     class={`fa ${
                       video.isInWatchLater ? "fa-trash" : "fa-clock-o"
                     }`}
-                  ></i>{" "}
+                  ></i>
                   {video.isInWatchLater
                     ? "Delete from Watch Later"
                     : "Add to Watch Later"}

@@ -8,7 +8,7 @@ import {
 } from "../../Handlers/playlisthandler";
 import "../PlaylistModal/playlist.css";
 const PlaylistModal = () => {
-  const { Datastate, modal, setModal, modalData, Datadispatch } = useVideo();
+  const { Datastate, modal, setModal, modalData, dataDispatch } = useVideo();
   const { playlist } = Datastate;
   const { token } = useAuth();
   const [showInput, setShowInput] = useState(false);
@@ -16,10 +16,9 @@ const PlaylistModal = () => {
   const createHandler = () => {
     setShowInput(true);
     playlistName &&
-      postPlaylistHandler(token, Datadispatch, playlistName, setShowInput);
+      postPlaylistHandler(token, dataDispatch, playlistName, setShowInput);
     setPlaylistName("");
   };
-  console.log(playlist);
   return (
     <div
       className={`modal-wrap flex-center ${
@@ -50,7 +49,7 @@ const PlaylistModal = () => {
                     e.target.checked
                       ? postPlaylistVideoHandler(
                           token,
-                          Datadispatch,
+                          dataDispatch,
                           modalData,
                           item._id
                         )

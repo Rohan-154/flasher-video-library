@@ -1,9 +1,9 @@
 import { deleteLikeHandler, postLikeHandler } from "../Handlers/likeHandler";
 
-const LikeHandler = (token, singleVideo, Datadispatch, isInLiked) => {
+const LikeHandler = (token, singleVideo, dataDispatch, isInLiked) => {
   isInLiked
-    ? deleteLikeHandler(token, singleVideo._id, Datadispatch)
-    : postLikeHandler(token, Datadispatch, singleVideo);
+    ? deleteLikeHandler(token, singleVideo._id, dataDispatch)
+    : postLikeHandler(token, dataDispatch, singleVideo);
 };
 
 export { LikeHandler };

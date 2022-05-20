@@ -5,13 +5,13 @@ import {
   postHistoryService,
 } from "../services/historyService";
 
-const postHistoryHandler = async (token, Datadispatch, videoItem) => {
+const postHistoryHandler = async (token, dataDispatch, videoItem) => {
   try {
     const {
       data: { history },
     } = await postHistoryService(token, videoItem);
     history &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.ADD_TO_HISTORY,
         payload: history,
       });
@@ -19,13 +19,13 @@ const postHistoryHandler = async (token, Datadispatch, videoItem) => {
     console.log("Ching!", error);
   }
 };
-const deleteHistoryHandler = async (token, Datadispatch, videoId) => {
+const deleteHistoryHandler = async (token, dataDispatch, videoId) => {
   try {
     const {
       data: { history },
     } = await deleteHistoryService(token, videoId);
     history &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.ADD_TO_HISTORY,
         payload: history,
       });
@@ -33,10 +33,10 @@ const deleteHistoryHandler = async (token, Datadispatch, videoId) => {
     console.log("Unable to delete!", error);
   }
 };
-const clearAllHistoryHandler = async (token, Datadispatch)=>{
+const clearAllHistoryHandler = async (token, dataDispatch)=>{
   try {
     const {data : {history}}= await clearHistoryService(token);
-    Datadispatch({
+    dataDispatch({
       type: Abbreviations.ADD_TO_HISTORY,
       payload: history
     })

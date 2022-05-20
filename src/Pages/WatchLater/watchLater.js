@@ -5,7 +5,7 @@ import { Footer } from "../../Components/Fixed-Footer/footer";
 import { useAuth } from "../../Context/authContext";
 import { deleteWatchLaterHandler } from "../../Handlers/watchLaterhandler";
 const WatchLater = () => {
-  const { Datastate, Datadispatch } = useVideo();
+  const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
   const { token } = useAuth();
   const WatchLaterVideos = videos.filter((item) => item.isInWatchLater);
@@ -30,7 +30,7 @@ const WatchLater = () => {
                         onClick={() =>
                           deleteWatchLaterHandler(
                             token,
-                            Datadispatch,
+                            dataDispatch,
                             video._id
                           )
                         }

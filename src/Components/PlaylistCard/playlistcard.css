@@ -1,0 +1,18 @@
+.card-cout{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-bg-color);
+    top:0;
+    right: 0;
+    height: 70%;
+    width: 35%;
+    opacity: .9;
+    bottom: 1rem;
+    font-size: 1.4rem;
+    gap: 1rem;
+}
+.container-playlist{
+    overflow: hidden;
+}
