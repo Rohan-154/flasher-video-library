@@ -43,7 +43,7 @@ const Login = () => {
                 </label>
                 <input
                   type="email"
-                  placeholder="naruto@naruto.com"
+                  placeholder="naruto@rasengan.com"
                   value={loginForm.email}
                   onChange={(e) =>
                     setLoginForm((loginForm) => ({

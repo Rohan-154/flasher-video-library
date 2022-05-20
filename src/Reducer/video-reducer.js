@@ -46,6 +46,11 @@ const DataReducer = (state, action) => {
           list._id === action.payload._id ? action.payload : list
         ),
       };
+    case Abbreviations.SEARCH_VIDEOS:
+      return {
+        ...state,
+        search: action.payload,
+      };
   }
 };
 

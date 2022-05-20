@@ -8,5 +8,6 @@ const Abbreviations = {
   ADD_TO_HISTORY: "addToHistory",
   CREATE_PLAYLIST :"createPlaylist",
   UPDATE_VIDEO_PLAYLIST :'updatePlaylist',
+  SEARCH_VIDEOS:"searchVideos",
 };
 export { Abbreviations };
