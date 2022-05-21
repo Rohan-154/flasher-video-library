@@ -5,6 +5,7 @@ import { PrivateRoute } from "./Components/PrivateRoute/privateRoute";
 import { LikedVideo } from "./Pages/Liked-Videos/likeVideo";
 import { SingleVideo } from "./Pages/Single-Video-Page/single-video";
 import { VideoListing } from "./Pages/Video-Listing/videoListing";
+import { WatchLater } from "./Pages/WatchLater/watchLater";
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,14 @@ function App() {
           element={
             <PrivateRoute>
               <LikedVideo />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/watchLater"
+          element={
+            <PrivateRoute>
+              <WatchLater />
             </PrivateRoute>
           }
         />

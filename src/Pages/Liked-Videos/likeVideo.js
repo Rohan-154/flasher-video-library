@@ -4,6 +4,7 @@ import { useMediaPredicate } from "react-media-hook";
 import {Footer} from '../../Components/Fixed-Footer/footer'
 import { deleteLikeHandler } from "../../Handlers/likeHandler";
 import { useAuth } from "../../Context/authContext";
+import "../Liked-Videos/likeVideo.css";
 const LikedVideo = () => {
   const { Datastate,Datadispatch } = useVideo();
   const { videos } = Datastate;
@@ -14,7 +15,7 @@ const LikedVideo = () => {
     <>
      <Footer/>
       {!biggerThan600 && <Sidebar />}
-      <section className="home-section">
+      <section className="home-section home-section-like">
         <div className="text">
           {likedVideo &&
             likedVideo.map((video) => (

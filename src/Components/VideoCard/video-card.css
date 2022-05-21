@@ -109,8 +109,7 @@ figure img {
 span,
 p,
 h2,
-h3,
-i {
+h3 {
     color: var(--black-color);
 }
 
@@ -139,12 +138,20 @@ i {
     font-size: 0.9rem;
 }
 
+.options div:hover {
+    background-color: var(--white-color);
+}
+
 .display-flex {
     display: flex;
 }
 
 .display-none {
     display: none;
+}
+
+.red-color {
+    color: red;
 }
 
 @media screen and (max-width: 600px) {

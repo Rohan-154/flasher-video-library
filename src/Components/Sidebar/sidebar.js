@@ -36,31 +36,34 @@ const Sidebar = () => {
             </li>
           </Link>
 
+          <Link to="/watchLater">
+            <li>
+              <span className="span1">
+                <i class="fa fa-clock-o"></i>
+                <span className="links_name">Watch Later</span>
+                <span className="tooltip">Watch Later</span>
+              </span>
+            </li>
+          </Link>
 
           <li>
-            <span className="span1"> 
-              <i class="fa fa-clock-o"></i>
-              <span className="links_name">Watch Later</span>
-              <span className="tooltip">Watch Later</span>
+            <span>
+              {" "}
+              <i className="fa fa-play-circle"></i>
+              <span className="links_name">Playlist</span>
             </span>
-          </li>
-
-
-
-          <li>
-           <span> <i className="fa fa-play-circle"></i>
-            <span className="links_name">Playlist</span></span>
 
             <span className="tooltip">Playlist</span>
           </li>
-          <li>
-            <span>
-            <i className="fa fa-history"></i>
-            <span className="links_name">History</span>
-
-            </span>
-            <span className="tooltip">History</span>
-          </li>
+          <Link to="/history">
+            <li>
+              <span>
+                <i className="fa fa-history"></i>
+                <span className="links_name">History</span>
+              </span>
+              <span className="tooltip">History</span>
+            </li>
+          </Link>
           <li className="profile">
             <div className="profile-details">
               <div className="name_job">

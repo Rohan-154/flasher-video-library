@@ -1,0 +1,7 @@
+@media screen and (max-width:450px) {
+    .home-section-like{
+        left: 1rem;
+        margin-top: 8rem;
+        bottom: 1rem;
+    }
+}
