@@ -1,7 +1,13 @@
 @media screen and (max-width:450px) {
-    .home-section-like{
+    .home-section-like {
         left: 1rem;
-        margin-top: 8rem;
         bottom: 1rem;
+    }
+
+    @media screen and (max-width:700px) {
+        .flex-wrap-row {
+            flex-direction: column;
+            margin-left: 3rem;
+        }
     }
 }

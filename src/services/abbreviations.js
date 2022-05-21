@@ -9,5 +9,6 @@ const Abbreviations = {
   CREATE_PLAYLIST :"createPlaylist",
   UPDATE_VIDEO_PLAYLIST :'updatePlaylist',
   SEARCH_VIDEOS:"searchVideos",
+  SORT_BY_DATE: 'sortByDate',
 };
 export { Abbreviations };

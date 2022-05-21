@@ -29,7 +29,6 @@
 .search-box {
     display: flex;
     align-items: center;
-    /* transform: translate(-50%, -50%); */
     padding: 0.6rem;
     width: 30vw;
     border-radius: 1rem;
@@ -63,7 +62,6 @@
 .search-box-mob {
     display: none;
 }
-
 @media screen and (max-width:500px) {
     .search-box {
         display: none;
@@ -75,7 +73,7 @@
     }
 
 
-    .line-height-extra{
+    .line-height-extra {
         line-height: 0;
         letter-spacing: 0;
     }

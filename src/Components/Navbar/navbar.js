@@ -5,7 +5,7 @@ import "../Navbar/navbar.css";
 import { useVideo } from "../../Context/dataContext";
 import { Abbreviations } from "../../services/abbreviations";
 const Navbar = () => {
-  const { token } = useAuth();
+  const { token,logOutHandler } = useAuth();
   const [input, setInput] = useState("");
   const { dataDispatch } = useVideo();
   const searchHandler = (e) => {
@@ -16,7 +16,7 @@ const Navbar = () => {
   };
   return (
     <div className="nav-align">
-      <Link to="/explore">
+      <Link to="/">
         <h1 className="line-height-extra">
           <i class="fa-solid fa-bolt"></i> Flasher
         </h1>
@@ -50,10 +50,10 @@ const Navbar = () => {
           </span>
         </button>
 
-        <Link to={`${token ? "/explore" : "/login"}`}>
+        <Link to={`${token ? "/" : "/login"}`}>
           <button className="btn-com btn-icon-singular">
             <span className="btn-icon">
-              <i class="fa-solid fa-user"></i>
+              {!token ? <i class="fa-solid fa-user"></i> : <i class="fa-solid fa-arrow-right-from-bracket" onClick={()=> logOutHandler()}></i>}
             </span>
           </button>
         </Link>

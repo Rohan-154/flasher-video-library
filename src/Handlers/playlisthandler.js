@@ -16,7 +16,6 @@ const postPlaylistHandler = async (
     const {
       data: { playlists },
     } = await postPlaylistService(token, playListTitle);
-    console.log(playlists);
     setShowInput(false);
     playlists &&
       dataDispatch({
@@ -62,7 +61,12 @@ const postPlaylistVideoHandler = async (
   }
 };
 
-const DeletePlaylistVideohandler = async (token, videoId, playListId,dataDispatch) => {
+const DeletePlaylistVideohandler = async (
+  token,
+  videoId,
+  playListId,
+  dataDispatch
+) => {
   try {
     const {
       data: { playlist },
@@ -76,4 +80,9 @@ const DeletePlaylistVideohandler = async (token, videoId, playListId,dataDispatc
     console.log(error);
   }
 };
-export { postPlaylistHandler, deletePlaylistHandler, postPlaylistVideoHandler,DeletePlaylistVideohandler };
+export {
+  postPlaylistHandler,
+  deletePlaylistHandler,
+  postPlaylistVideoHandler,
+  DeletePlaylistVideohandler,
+};
