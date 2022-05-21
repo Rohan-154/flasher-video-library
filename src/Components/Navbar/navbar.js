@@ -5,7 +5,7 @@ const Navbar = () => {
   const { token } = useAuth();
   return (
     <div className="nav-align">
-      <Link to="/">
+      <Link to="/explore">
         <h1 className="line-height-extra">
           <i class="fa-solid fa-bolt"></i> Flasher
         </h1>
