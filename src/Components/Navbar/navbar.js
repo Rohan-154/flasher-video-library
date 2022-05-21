@@ -13,7 +13,7 @@ const Navbar = () => {
 
       <div class="search-box">
         <span class="search-icon">
-          {" "}
+          
           <i class="fa-solid fa-magnifying-glass"></i>
         </span>
         <input
@@ -36,29 +36,19 @@ const Navbar = () => {
             )}
           </span>
         </button>
-        {token ? (
-          <Link to="/explore">
-            {" "}
-            <button className="btn-com btn-icon-singular">
-              <span className="btn-icon">
-                <i class="fa-solid fa-user"></i>
-              </span>
-            </button>
-          </Link>
-        ) : (
-          <Link to="/login">
-            {" "}
-            <button className="btn-com btn-icon-singular">
-              <span className="btn-icon">
-                <i class="fa-solid fa-user"></i>
-              </span>
-            </button>
-          </Link>
-        )}
+
+        <Link to={`${token ? "/explore" : "/login"}`}>
+          
+          <button className="btn-com btn-icon-singular">
+            <span className="btn-icon">
+              <i class="fa-solid fa-user"></i>
+            </span>
+          </button>
+        </Link>
       </div>
       <div class="search-box search-box-mob">
         <span class="search-icon">
-          {" "}
+          
           <i class="fa-solid fa-magnifying-glass"></i>
         </span>
         <input

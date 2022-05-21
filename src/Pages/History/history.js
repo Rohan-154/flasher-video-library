@@ -5,7 +5,7 @@ import { Footer } from "../../Components/Fixed-Footer/footer";
 import { useAuth } from "../../Context/authContext";
 import { clearAllHistoryHandler, deleteHistoryHandler } from "../../Handlers/historyHandler";
 const HistoryVideo = () => {
-  const { Datastate, Datadispatch } = useVideo();
+  const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
   const { token } = useAuth();
   const HistoryVideo = videos.filter((item) => item.isInHistory);
@@ -17,7 +17,7 @@ const HistoryVideo = () => {
       {!biggerThan600 && <Sidebar />}
       <section className="home-section home-section-like">
         <div className="text">
-        <button class="btn-com btn-primary-outline Clear-all" onClick={()=> clearAllHistoryHandler(token, Datadispatch)}> CLEAR ALL </button>
+        <button class="btn-com btn-primary-outline Clear-all" onClick={()=> clearAllHistoryHandler(token, dataDispatch)}> CLEAR ALL </button>
           {HistoryVideo &&
             HistoryVideo.map((video) => (
               <div class="container" key={video._id}>
@@ -30,7 +30,7 @@ const HistoryVideo = () => {
                       <p>{video.uploaded}</p>
                       <div
                         onClick={() =>
-                          deleteHistoryHandler(token, Datadispatch, video._id)
+                          deleteHistoryHandler(token, dataDispatch, video._id)
                         }
                       >
                         <span>

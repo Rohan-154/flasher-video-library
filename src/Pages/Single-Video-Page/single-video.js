@@ -11,7 +11,7 @@ import { watchLaterHandler } from "../../Utils/watchLaterUtils";
 const SingleVideo = () => {
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { videoId } = useParams();
-  const { Datastate, Datadispatch } = useVideo();
+  const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
   const { token } = useAuth();
   const singleVideo =
@@ -46,7 +46,7 @@ const SingleVideo = () => {
                     ? LikeHandler(
                         token,
                         singleVideo,
-                        Datadispatch,
+                        dataDispatch,
                         singleVideo.isInLiked
                       )
                     : navigate("/login", {
@@ -56,7 +56,7 @@ const SingleVideo = () => {
                 }
               >
                 <span>
-                  <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>{" "}
+                  <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
                   {singleVideo.isInLiked ? "Liked" : "Like"}
                 </span>
               </div>
@@ -68,7 +68,7 @@ const SingleVideo = () => {
                   token
                     ? watchLaterHandler(
                         token,
-                        Datadispatch,
+                        dataDispatch,
                         singleVideo,
                         singleVideo.isInWatchLater
                       )
@@ -79,7 +79,7 @@ const SingleVideo = () => {
                 }
               >
                 <span>
-                  <i className="fa fa-clock-o" aria-hidden="true"></i>{" "}
+                  <i className="fa fa-clock-o" aria-hidden="true"></i>
                   {singleVideo.isInWatchLater
                     ? "Delete From Watch Later"
                     : "Add To Watch Later"}
@@ -92,14 +92,14 @@ const SingleVideo = () => {
               </div>
               <div className="normal-btn">
                 <span>
-                  {" "}
+                  
                   <i class="fa-solid fa-share-nodes"></i> Share
                 </span>
               </div>
             </div>
             <h2>Description : </h2>
             <p>
-              {" "}
+              
             {singleVideo.description}
             </p>
           </div>

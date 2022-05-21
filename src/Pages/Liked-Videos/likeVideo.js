@@ -6,7 +6,7 @@ import { deleteLikeHandler } from "../../Handlers/likeHandler";
 import { useAuth } from "../../Context/authContext";
 import "../Liked-Videos/likeVideo.css";
 const LikedVideo = () => {
-  const { Datastate,Datadispatch } = useVideo();
+  const { Datastate,dataDispatch } = useVideo();
   const { videos } = Datastate;
   const {token} = useAuth()
   const likedVideo = videos.filter((item) => item.isInLiked);
@@ -30,7 +30,7 @@ const LikedVideo = () => {
                     <div className='date-three-bars'>
                     <p>{video.uploaded}
                     </p>
-                    <div onClick={()=> deleteLikeHandler(token, video._id, Datadispatch)}><span><i class="fa-solid fa-trash"></i></span></div>
+                    <div onClick={()=> deleteLikeHandler(token, video._id, dataDispatch)}><span><i class="fa-solid fa-trash"></i></span></div>
                     </div>
                   </figcaption>
                 </figure>

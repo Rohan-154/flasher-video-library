@@ -5,10 +5,10 @@ import { SortedCategory } from "../../helper_functions/categorySort";
 import { Abbreviations } from "../../services/abbreviations";
 import "../Video-Listing/videoListing.css";
 const VideoListing = () => {
-  const { Datastate, Datadispatch } = useVideo();
+  const { Datastate, dataDispatch } = useVideo();
   const { categories, videos, sortBy } = Datastate;
   const sortHandler = (catName) => {
-    Datadispatch({ type: Abbreviations.SORT_BY, payload: catName });
+    dataDispatch({ type: Abbreviations.SORT_BY, payload: catName });
   };
   const sortedCategory = SortedCategory(videos, sortBy);
   return (

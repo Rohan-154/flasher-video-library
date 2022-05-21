@@ -5,13 +5,13 @@ import {
   postLikeService,
 } from "../services/likeServices";
 
-const getLikeHandler = async (token, Datadispatch) => {
+const getLikeHandler = async (token, dataDispatch) => {
   try {
     const {
       data: { likes },
     } = await getLikeService(token);
     likes &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.LIKE_VIDEO,
         payload: likes,
       });
@@ -20,13 +20,13 @@ const getLikeHandler = async (token, Datadispatch) => {
   }
 };
 
-const postLikeHandler = async (token, Datadispatch, videoItem) => {
+const postLikeHandler = async (token, dataDispatch, videoItem) => {
   try {
     const {
       data: { likes },
     } = await postLikeService(token, videoItem);
     likes &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.LIKE_VIDEO,
         payload: likes,
       });
@@ -35,13 +35,13 @@ const postLikeHandler = async (token, Datadispatch, videoItem) => {
   }
 };
 
-const deleteLikeHandler = async (token, videoId, Datadispatch) => {
+const deleteLikeHandler = async (token, videoId, dataDispatch) => {
   try {
     const {
       data: { likes },
     } = await deleteLikeService(token, videoId);
     likes &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.LIKE_VIDEO,
         payload: likes,
       });

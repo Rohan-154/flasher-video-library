@@ -7,7 +7,6 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorageToken?.token || "");
   const [user, setUser] = useState(localStorageToken?.user || "");
   const loginAuth = async (email, password) => {
-      console.log(email,password);
     try {
       const {
         data: { encodedToken, foundUser },
@@ -25,7 +24,7 @@ const AuthProvider = ({ children }) => {
         setUser(foundUser);
       }
     } catch (error) {
-      console.log(error); 
+      console.log(error);
     }
   };
 

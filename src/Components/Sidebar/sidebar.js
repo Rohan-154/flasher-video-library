@@ -27,7 +27,6 @@ const Sidebar = () => {
           <Link to="/liked">
             <li>
               <span>
-                {" "}
                 <i class="fa-solid fa-heart"></i>
                 <span className="links_name">Liked</span>
               </span>
@@ -45,16 +44,15 @@ const Sidebar = () => {
               </span>
             </li>
           </Link>
-
-          <li>
-            <span>
-              {" "}
-              <i className="fa fa-play-circle"></i>
-              <span className="links_name">Playlist</span>
-            </span>
-
-            <span className="tooltip">Playlist</span>
-          </li>
+          <Link to="/playlist">
+            <li>
+              <span>
+                <i className="fa fa-play-circle"></i>
+                <span className="links_name">Playlist</span>
+              </span>
+              <span className="tooltip">Playlist</span>
+            </li>
+          </Link>
           <Link to="/history">
             <li>
               <span>

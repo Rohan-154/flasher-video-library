@@ -17,10 +17,10 @@ const VideoProvider = ({ children }) => {
     isInWatchLater: false,
     playlist: [],
   };
-  const [Datastate, Datadispatch] = useReducer(DataReducer, DatainitialState);
+  const [Datastate, dataDispatch] = useReducer(DataReducer, DatainitialState);
   useEffect(() => {
     video &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.INITIAL_VIDEOS,
         payload: video,
       });
@@ -29,7 +29,7 @@ const VideoProvider = ({ children }) => {
     (async () => {
       try {
         const catData = await getCategoryService();
-        Datadispatch({
+        dataDispatch({
           type: Abbreviations.INITIAL_CATEGORY,
           payload: catData.data.categories,
         });
@@ -37,12 +37,12 @@ const VideoProvider = ({ children }) => {
         console.log(error);
       }
     })();
-  }, [Datadispatch]);
+  }, [dataDispatch]);
 
   return (
     <VideoContext.Provider
       value={{
-        Datadispatch,
+        dataDispatch,
         Datastate,
         modal,
         setModal,

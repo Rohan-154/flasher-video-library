@@ -5,25 +5,25 @@ const Footer = () => {
       <div className="fix-footer-wrap">
         <ul className="ul-fix-footer">
           <li>
-            <a href="#">
+            <a>
               <i class="fa-solid fa-heart"></i>
               <span className="fix-footer-field"></span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a>
               <i class="fa fa-clock-o"></i>
               <span className="fix-footer-field"></span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a>
               <i className="fa fa-play-circle"></i>
               <span className="fix-footer-field"></span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a>
               <i className="fa fa-history"></i>
               <span className="fix-footer-field"></span>
             </a>

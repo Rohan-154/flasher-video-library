@@ -4,13 +4,13 @@ import {
   postWatchLaterService,
 } from "../services/watchLaterservice";
 
-const postWatchLaterHandler = async (token, Datadispatch, videoItem) => {
+const postWatchLaterHandler = async (token, dataDispatch, videoItem) => {
   try {
     const {
       data: { watchlater },
     } = await postWatchLaterService(token, videoItem);
     watchlater &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.WATCH_LATER,
         payload: watchlater,
       });
@@ -18,13 +18,13 @@ const postWatchLaterHandler = async (token, Datadispatch, videoItem) => {
     console.log("Could not save the video to watch later", error);
   }
 };
-const deleteWatchLaterHandler = async (token, Datadispatch, videoId) => {
+const deleteWatchLaterHandler = async (token, dataDispatch, videoId) => {
   try {
     const {
       data: { watchlater },
     } = await deleteWatchLaterService(token, videoId);
     watchlater &&
-      Datadispatch({
+      dataDispatch({
         type: Abbreviations.WATCH_LATER,
         payload: watchlater,
       });
