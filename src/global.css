@@ -1,11 +1,30 @@
-:root{
+:root {
     --primary-color: #f2a30b;
     --primary-color-light: #f6b53c;
     --primary-color-dark: #db920a;
-    --secondary-color: 	#ffe182;
+    --secondary-color: #ffe182;
     --third-color: #ffe182;
-    --hover-login:#5570f6;
+    --hover-login: #5570f6;
 }
-.App{
+
+.App {
     min-height: 100vh;
+}
+
+.img-empty {
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    
+}
+.flex-wrap-row{
+    justify-content: center;
+    align-items: center;
+    margin: 3rem auto;
+}
+.flex-wrap-column{
+    align-items: center;
+}
+.btn-video:hover{
+   background-color: var(--hover-login);
 }

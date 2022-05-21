@@ -1,16 +1,17 @@
 import { Sidebar } from "../../Components/Sidebar/sidebar";
 import { VideoCard } from "../../Components/VideoCard/video-card";
 import { useVideo } from "../../Context/dataContext";
-import { SortedCategory } from "../../helper_functions/categorySort";
+import { SearchVideos, SortedCategory } from "../../helper_functions/categorySort";
 import { Abbreviations } from "../../services/abbreviations";
 import "../Video-Listing/videoListing.css";
 const VideoListing = () => {
   const { Datastate, dataDispatch } = useVideo();
-  const { categories, videos, sortBy } = Datastate;
+  const { categories, videos, sortBy,search } = Datastate;
   const sortHandler = (catName) => {
     dataDispatch({ type: Abbreviations.SORT_BY, payload: catName });
   };
-  const sortedCategory = SortedCategory(videos, sortBy);
+  const sortedSearch = SearchVideos(videos,search)
+  const sortedCategory = SortedCategory(sortedSearch, sortBy);
   return (
     <>
       <Sidebar />

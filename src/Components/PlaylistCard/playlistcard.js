@@ -3,7 +3,7 @@ import { useAuth } from "../../Context/authContext";
 import { useVideo } from "../../Context/dataContext";
 import { deletePlaylistHandler } from "../../Handlers/playlisthandler";
 import "../PlaylistCard/playlistcard.css";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 const PlaylistCard = ({ video }) => {
   const { _id, title, videos } = video;
   const [showOption, setShowOption] = useState(false);
@@ -16,7 +16,10 @@ const PlaylistCard = ({ video }) => {
       {videos.length > 0 ? (
         <div class="container container-playlist">
           <figure class="menu-card">
-            <img src={`https://i.ytimg.com/vi/${videos[0]._id}/0.jpg`} onClick={()=> navigate(`/playlist/${_id}`)} />
+            <img
+              src={`https://i.ytimg.com/vi/${videos[0]._id}/0.jpg`}
+              onClick={() => navigate(`/playlist/${_id}`)}
+            />
             <figcaption>
               <div
                 className="date-three-bars"
