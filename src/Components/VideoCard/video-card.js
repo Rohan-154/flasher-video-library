@@ -4,14 +4,29 @@ import { useState } from "react";
 import { watchLaterHandler } from "../../Utils/watchLaterUtils";
 import { useAuth } from "../../Context/authContext";
 import { useVideo } from "../../Context/dataContext";
+import { postHistoryHandler } from "../../Handlers/historyHandler";
 const VideoCard = ({ video }) => {
   const [showOption, setShowOption] = useState(false);
   const navigate = useNavigate();
   const { token } = useAuth();
-  const { Datadispatch } = useVideo();
+  const { Datadispatch, setModal, setmodalData } = useVideo();
   const { _id, title, catchName, uploaded } = video;
   const singlePageNavigator = () => {
     navigate(`/video/${_id}`);
+    token &&
+      !video.isInHistory &&
+      postHistoryHandler(token, Datadispatch, video);
+  };
+  const addToPlaylist = () => {
+    if (token) {
+      setModal(true);
+      setmodalData(video);
+    } else {
+      navigate("/login", {
+        replace: true,
+        state: { from: location.pathname },
+      });
+    }
   };
   return (
     <>
@@ -62,7 +77,7 @@ const VideoCard = ({ video }) => {
                     ? "Delete from Watch Later"
                     : "Add to Watch Later"}
                 </div>
-                <div>
+                <div onClick={() => addToPlaylist()}>
                   <i className="fa fa-play-circle"></i> Add to Playlist
                 </div>
               </div>

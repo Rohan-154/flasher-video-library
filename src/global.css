@@ -5,5 +5,7 @@
     --secondary-color: 	#ffe182;
     --third-color: #ffe182;
     --hover-login:#5570f6;
-
+}
+.App{
+    min-height: 100vh;
 }

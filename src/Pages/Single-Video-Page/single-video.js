@@ -15,7 +15,7 @@ const SingleVideo = () => {
   const { videos } = Datastate;
   const { token } = useAuth();
   const singleVideo =
-    videos.length !== 0 && videos?.find((video) => video._id === videoId);
+  videos.length !== 0 && videos?.find((video) => video._id === videoId);
   const location = useLocation();
   const navigate = useNavigate();
   return (

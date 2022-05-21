@@ -2,16 +2,20 @@ import { createContext, useContext } from "react";
 import { useEffect, useReducer } from "react";
 import { DataReducer } from "../Reducer/video-reducer";
 import { Abbreviations } from "../services/abbreviations";
-import { getCategoryService, getVideoService } from "../services/dataservice";
+import { getCategoryService } from "../services/dataservice";
 import { useFetch } from "../custom-hooks/useFetch";
+import { useState } from "react";
 const VideoProvider = ({ children }) => {
   const { data: video } = useFetch("/api/videos", "videos");
+  const [modal, setModal] = useState(false);
+  const [modalData, setmodalData] = useState({});
   const DatainitialState = {
     videos: [],
     categories: [],
     sortBy: "All",
-    isInLiked : false,
-    isInWatchLater : false,
+    isInLiked: false,
+    isInWatchLater: false,
+    playlist: [],
   };
   const [Datastate, Datadispatch] = useReducer(DataReducer, DatainitialState);
   useEffect(() => {
@@ -36,7 +40,16 @@ const VideoProvider = ({ children }) => {
   }, [Datadispatch]);
 
   return (
-    <VideoContext.Provider value={{ Datadispatch, Datastate }}>
+    <VideoContext.Provider
+      value={{
+        Datadispatch,
+        Datastate,
+        modal,
+        setModal,
+        modalData,
+        setmodalData,
+      }}
+    >
       {children}
     </VideoContext.Provider>
   );
