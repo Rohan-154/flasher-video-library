@@ -4,18 +4,26 @@ import { useAuth } from "../../Context/authContext";
 import "../Navbar/navbar.css";
 import { useVideo } from "../../Context/dataContext";
 import { Abbreviations } from "../../services/abbreviations";
+import { useTheme } from "../../Context/themeContext";
 const Navbar = () => {
-  const { token,logOutHandler } = useAuth();
+  const { token, logOutHandler } = useAuth();
   const [input, setInput] = useState("");
   const { dataDispatch } = useVideo();
   const searchHandler = (e) => {
-      dataDispatch({
-        type: Abbreviations.SEARCH_VIDEOS,
-        payload: e.target.value,
-      });
+    dataDispatch({
+      type: Abbreviations.SEARCH_VIDEOS,
+      payload: e.target.value,
+    });
   };
+  const { theme, themeToggle } = useTheme();
   return (
-    <div className="nav-align">
+    <div
+      className="nav-align"
+      style={{
+        color: theme === "light" ? "black" : "#fff",
+        backgroundColor: theme === "light" ? "#ffe182" : "#191921",
+      }}
+    >
       <Link to="/">
         <h1 className="line-height-extra">
           <i class="fa-solid fa-bolt"></i> Flasher
@@ -37,12 +45,29 @@ const Navbar = () => {
         />
       </div>
       <div>
+        <Link to='/playlist' >
+          <button
+            className="btn-com btn-icon-singular"
+            style={{
+              color: theme === "light" ? "black" : "#fff",
+              backgroundColor: theme === "light" ? "#ffe182" : "#191921",
+            }}
+          >
+            <span className="btn-icon">
+              <i className="fa fa-play-circle"></i>
+            </span>
+          </button>
+        </Link>
         <button
           className="btn-com btn-icon-singular"
-          // onClick={themeToggle}
+          onClick={themeToggle}
+          style={{
+            color: theme === "light" ? "black" : "#fff",
+            backgroundColor: theme === "light" ? "#ffe182" : "#191921",
+          }}
         >
           <span className="btn-icon">
-            {"theme" === "light" ? (
+            {theme === "light" ? (
               <i className="fa-solid fa-moon"></i>
             ) : (
               <i className="fa-solid fa-sun"></i>
@@ -51,9 +76,22 @@ const Navbar = () => {
         </button>
 
         <Link to={`${token ? "/" : "/login"}`}>
-          <button className="btn-com btn-icon-singular">
+          <button
+            className="btn-com btn-icon-singular"
+            style={{
+              color: theme === "light" ? "black" : "#fff",
+              backgroundColor: theme === "light" ? "#ffe182" : "#191921",
+            }}
+          >
             <span className="btn-icon">
-              {!token ? <i class="fa-solid fa-user"></i> : <i class="fa-solid fa-arrow-right-from-bracket" onClick={()=> logOutHandler()}></i>}
+              {!token ? (
+                <i class="fa-solid fa-user"></i>
+              ) : (
+                <i
+                  class="fa-solid fa-arrow-right-from-bracket"
+                  onClick={() => logOutHandler()}
+                ></i>
+              )}
             </span>
           </button>
         </Link>

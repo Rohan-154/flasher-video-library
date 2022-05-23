@@ -3,6 +3,8 @@ import { useAuth } from "../../../Context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../Login/login.css";
 import { Link } from "react-router-dom";
+import { usePasswordToggle } from "../../../custom-hooks/passwordToggle";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 const Login = () => {
   const { loginAuth, token } = useAuth();
   const [loginForm, setLoginForm] = useState({
@@ -10,18 +12,19 @@ const Login = () => {
     password: "",
   });
   useEffect(() => {
-    loginAuth(loginForm.email, loginForm.password)
+    loginAuth(loginForm.email, loginForm.password);
   }, [loginForm.email, loginForm.password]);
+  const { passwordToggle, togglePassword } = usePasswordToggle();
   const navigate = useNavigate();
   const location = useLocation();
   if (token) navigate(location?.state?.from || "/", { replace: true });
-  const loginHandler = ()=>{
-      setLoginForm ((loginForm)=> ({
-          ...loginForm,
-          email:"rohandubey154@gmail.com",
-          password:"rohan12345"
-      }))
-  }
+  const loginHandler = () => {
+    setLoginForm((loginForm) => ({
+      ...loginForm,
+      email: "rohandubey154@gmail.com",
+      password: "rohan12345",
+    }));
+  };
   return (
     <div className="wrapper">
       <div className="container-login">
@@ -37,7 +40,7 @@ const Login = () => {
         <div className="col-right">
           <div className="login-form">
             <h2>Login</h2>
-            <form onSubmit={(e)=> e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
               <p>
                 <label>
                   email address<span>*</span>
@@ -60,10 +63,10 @@ const Login = () => {
                   Password<span>*</span>
                 </label>
                 <input
-                  type="password"
+                  type={passwordToggle.type}
                   placeholder="********"
                   required
-                  value={loginForm.email}
+                  value={loginForm.password}
                   onChange={(e) =>
                     setLoginForm((loginForm) => ({
                       ...loginForm,
@@ -72,8 +75,19 @@ const Login = () => {
                   }
                 />
               </p>
+              <div className="hide-show-password">
+                {passwordToggle.eyeIcon ? (
+                  <FaRegEye onClick={togglePassword} />
+                ) : (
+                  <FaRegEyeSlash onClick={togglePassword} />
+                )}
+              </div>
               <p>
-                <input type="submit" value="Test Login" onClick={()=> loginHandler()} />
+                <input
+                  type="submit"
+                  value="Test Login"
+                  onClick={() => loginHandler()}
+                />
               </p>
               <p>
                 <a href="">Forget Password?</a>

@@ -9,7 +9,6 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background-color: var(--secondary-color);
     padding: 0.5rem;
     position: sticky;
     z-index: 10;

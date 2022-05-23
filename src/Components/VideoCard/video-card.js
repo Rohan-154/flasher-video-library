@@ -5,6 +5,7 @@ import { watchLaterHandler } from "../../Utils/watchLaterUtils";
 import { useAuth } from "../../Context/authContext";
 import { useVideo } from "../../Context/dataContext";
 import { postHistoryHandler } from "../../Handlers/historyHandler";
+import { useTheme } from "../../Context/themeContext";
 const VideoCard = ({ video }) => {
   const [showOption, setShowOption] = useState(false);
   const navigate = useNavigate();
@@ -28,10 +29,19 @@ const VideoCard = ({ video }) => {
       });
     }
   };
+  const { theme } = useTheme();
   return (
     <>
       <div class="container">
-        <figure class="menu-card">
+        <figure
+          class="menu-card"
+          style={{
+            color: theme === "light" ? "black" : "#fff",
+            backgroundColor: theme === "light" ? "#e0e0eb" : "#191921",
+            boxShadow:
+              theme === 'light' ? "rgba(0, 0, 0, 0.4) 0px 2px 4px,rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset": "rgba(179, 179, 0) 5px 5px",
+          }}
+        >
           <img
             src={`https://i.ytimg.com/vi/${_id}/0.jpg`}
             onClick={() => singlePageNavigator()}
@@ -53,7 +63,6 @@ const VideoCard = ({ video }) => {
                 }`}
               >
                 <div
-                  className={`${video.isInWatchLater && "red-color"}`}
                   onClick={() =>
                     token
                       ? watchLaterHandler(
@@ -67,6 +76,7 @@ const VideoCard = ({ video }) => {
                           state: { from: location.pathname },
                         })
                   }
+              
                 >
                   <i
                     class={`fa ${

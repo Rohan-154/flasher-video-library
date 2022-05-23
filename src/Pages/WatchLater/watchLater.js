@@ -5,7 +5,8 @@ import { Footer } from "../../Components/Fixed-Footer/footer";
 import { useAuth } from "../../Context/authContext";
 import { deleteWatchLaterHandler } from "../../Handlers/watchLaterhandler";
 import { useNavigate } from "react-router-dom";
-import emptyLikeImg from "../../Assets/like.png";
+import emptyLikeImg from "../../Assets/naruto.png";
+import { useTheme } from "../../Context/themeContext";
 const WatchLater = () => {
   const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
@@ -13,7 +14,7 @@ const WatchLater = () => {
   const { navigate } = useNavigate();
   const watchLaterVideos = videos.filter((item) => item.isInWatchLater);
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
-
+  const { theme } = useTheme();
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}
@@ -23,7 +24,18 @@ const WatchLater = () => {
             {watchLaterVideos &&
               watchLaterVideos.map((video) => (
                 <div class="container" key={video._id}>
-                  <figure class="menu-card">
+                  <figure
+                    class="menu-card"
+                    style={{
+                      color: theme === "light" ? "black" : "#fff",
+                      backgroundColor:
+                        theme === "light" ? "#e0e0eb" : "#191921",
+                      boxShadow:
+                        theme === "light"
+                          ? "rgba(0, 0, 0, 0.4) 0px 2px 4px,rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
+                          : "rgba(179, 179, 0) 5px 5px",
+                    }}
+                  >
                     <img
                       src={`https://i.ytimg.com/vi/${video._id}/0.jpg`}
                       onClick={() => navigate(`/video/${video._id}`)}

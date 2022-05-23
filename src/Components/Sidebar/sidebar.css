@@ -2,8 +2,7 @@
     position: fixed;
     left: 0;
     height: 100%;
-    width: 78px;
-    background: var(--primary-color-light);
+    width: 4.87rem;
     padding: 6px 14px;
     z-index: 5;
     transition: all 0.5s ease;
@@ -12,11 +11,11 @@
 }
 
 .sidebar.open {
-    width: 250px;
+    width: 15.62rem;
 }
 
 .sidebar .logo-details {
-    height: 60px;
+    height: 3.75rem;
     display: flex;
     align-items: center;
     position: relative;
@@ -47,7 +46,7 @@
     transform: translateY(-50%);
     font-size: 2rem;
     transition: all 0.4s ease;
-    font-size: 23px;
+    font-size: 1.43rem;
     text-align: center;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -60,15 +59,15 @@
 
 .sidebar i {
     color: var(--white-color);
-    height: 60px;
-    min-width: 50px;
-    font-size: 28px;
+    height: 3.75rem;
+    min-width: 3.12rem;
+    font-size: 1.75rem;
     text-align: center;
-    line-height: 60px;
+    line-height: 3.75rem;
 }
 
 .sidebar .nav-list {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     height: 100%;
 }
 
@@ -80,7 +79,7 @@
 
 .sidebar li .tooltip {
     position: absolute;
-    top: -20px;
+    top: -1.25rem;
     left: calc(100% + 15px);
     background: var(--white-color);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
@@ -92,6 +91,7 @@
     white-space: nowrap;
     pointer-events: none;
     transition: 0s;
+    color: var(--black-color);
 }
 
 .sidebar li:hover .tooltip {
@@ -116,11 +116,11 @@
 }
 
 .sidebar li>span:hover {
-    background: var(--white-color);
+    background: var(--hover-login);
+
 }
 
 .sidebar ul li>span .links_name {
-    color: var(--black-color);
     font-size: 1.1rem;
     font-weight: 400;
     white-space: nowrap;
@@ -141,17 +141,17 @@
 }
 
 .sidebar li i {
-    height: 50px;
-    line-height: 50px;
-    font-size: 18px;
-    border-radius: 12px;
+    height: 3.12rem;
+    line-height: 3.12rem;
+    font-size: 1.12rem;
+    border-radius: 0.75rem;
     color: var(--black-color);
 }
 
 .sidebar li.profile {
     position: fixed;
-    height: 60px;
-    width: 78px;
+    height: 3.75rem;
+    width: 4.87rem;
     left: 0;
     bottom: -20px;
     padding: 10px 14px;
@@ -172,8 +172,8 @@
 }
 
 .sidebar li img {
-    height: 45px;
-    width: 45px;
+    height: 2.81rem;
+    width: 2.81rem;
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;
@@ -196,30 +196,30 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    background: #1d1b31;
+    background: var(--black-color);
     width: 100%;
-    height: 60px;
-    line-height: 60px;
+    height: 3.75rem;
+    line-height: 3.75rem;
     border-radius: 0px;
     transition: all 0.5s ease;
 }
 
 .sidebar.open .profile #log_out {
-    width: 50px;
+    width: 3.12rem;
     background: none;
 }
 
 .home-section {
     position: relative;
     min-height: 100vh;
-    left: 78px;
-    width: calc(100% - 78px);
+    left: 4.87rem;
+    width: calc(100% - 4.87rem);
     transition: all 0.5s ease;
 }
 
 .sidebar.open~.home-section {
-    left: 200px;
-    width: calc(100% - 250px);
+    left: 12.5rem;
+    width: calc(100% - 12.5rem);
 }
 
 .home-section .text {
@@ -236,23 +236,23 @@
 }
 
 .active-navbar {
-    background-color: var(--white-color);
+    background-color: var(--hover-login);
     border-radius: 0.7rem;
 }
-@media (max-width: 700px) {
+
+@media screen and (max-width: 700px) {
     .home-section .text {
         grid-template-columns: auto;
     }
 }
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
     .home-section .text {
         margin: 0rem 2rem;
     }
-}
 
-@media (max-width:342px) {
-    .sidebar {
-        top: 2rem;
+    .home-section {
+        left: 1rem;
+        bottom: 1rem;
     }
 }

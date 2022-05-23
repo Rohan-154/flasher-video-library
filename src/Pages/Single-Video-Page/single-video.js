@@ -8,7 +8,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useVideo } from "../../Context/dataContext";
 import { useAuth } from "../../Context/authContext";
 import { watchLaterHandler } from "../../Utils/watchLaterUtils";
+import { useEffect } from "react";
+import { useTheme } from "../../Context/themeContext";
 const SingleVideo = () => {
+  const {theme} = useTheme();
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { videoId } = useParams();
   const { Datastate, dataDispatch, setModal, setmodalData } = useVideo();
