@@ -5,11 +5,15 @@ import { Sidebar } from "../../Components/Sidebar/sidebar";
 import { useVideo } from "../../Context/dataContext";
 import emptyLikeImg from "../../Assets/naruto.png";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 const Playlist = () => {
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { Datastate } = useVideo();
   const { playlist } = Datastate;
   const { navigate } = useNavigate();
+  useEffect(() => {
+    document.title = "Playlist";
+  }, []);
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}

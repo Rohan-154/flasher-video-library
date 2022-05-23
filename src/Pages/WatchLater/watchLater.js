@@ -7,6 +7,7 @@ import { deleteWatchLaterHandler } from "../../Handlers/watchLaterhandler";
 import { useNavigate } from "react-router-dom";
 import emptyLikeImg from "../../Assets/naruto.png";
 import { useTheme } from "../../Context/themeContext";
+import { useEffect } from "react";
 const WatchLater = () => {
   const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
@@ -15,6 +16,9 @@ const WatchLater = () => {
   const watchLaterVideos = videos.filter((item) => item.isInWatchLater);
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { theme } = useTheme();
+  useEffect(() => {
+    document.title = "Watch Later";
+  }, []);
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}

@@ -10,6 +10,7 @@ import {
 import emptyLikeImg from "../../Assets/naruto.png";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../Context/themeContext";
+import { useEffect } from "react";
 const HistoryVideo = () => {
   const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
@@ -17,7 +18,10 @@ const HistoryVideo = () => {
   const HistoryVideo = videos.filter((item) => item.isInHistory);
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { navigate } = useNavigate();
-  const {theme} = useTheme();
+  const { theme } = useTheme();
+  useEffect(() => {
+    document.title = "History";
+  }, []);
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}
