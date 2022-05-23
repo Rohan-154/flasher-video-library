@@ -106,8 +106,8 @@ const Navbar = () => {
           name="search"
           placeholder="Search Videos by title"
           value={input}
-          onChange={() => setInput(e.target.value)}
-          onKeyDown={() => searchHandler(e)}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => searchHandler(e)}
         />
       </div>
     </div>
