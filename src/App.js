@@ -4,6 +4,7 @@ import { SignUp } from "./Components/Auth/SignUp/signup";
 import { Navbar } from "./Components/Navbar/navbar";
 import { PlaylistModal } from "./Components/PlaylistModal/playlistmodal";
 import { PrivateRoute } from "./Components/PrivateRoute/privateRoute";
+import { useTheme } from "./Context/themeContext";
 import { HistoryVideo } from "./Pages/History/history";
 import { LikedVideo } from "./Pages/Liked-Videos/likeVideo";
 import Playlist from "./Pages/Playlist/playlist";
@@ -12,8 +13,12 @@ import { SinglePlay } from "./Pages/SinglePlaylistNav/singlePlay";
 import { VideoListing } from "./Pages/Video-Listing/videoListing";
 import { WatchLater } from "./Pages/WatchLater/watchLater";
 function App() {
+  const {theme} = useTheme();
   return (
-    <div className="App">
+    <div className="App" style={{
+      color: theme === "light" ? "black" : "#fff",
+      backgroundColor: theme === "light" ? "#e0e0eb" : "#141319",
+    }}>
       <PlaylistModal />
       <Navbar />
       <Routes>

@@ -7,15 +7,17 @@ import {
   clearAllHistoryHandler,
   deleteHistoryHandler,
 } from "../../Handlers/historyHandler";
-import emptyLikeImg from '../../Assets/like.png';
+import emptyLikeImg from "../../Assets/naruto.png";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../Context/themeContext";
 const HistoryVideo = () => {
   const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
   const { token } = useAuth();
   const HistoryVideo = videos.filter((item) => item.isInHistory);
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
-  const {navigate} = useNavigate();
+  const { navigate } = useNavigate();
+  const {theme} = useTheme();
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}
@@ -32,7 +34,18 @@ const HistoryVideo = () => {
             {HistoryVideo &&
               HistoryVideo.map((video) => (
                 <div class="container" key={video._id}>
-                  <figure class="menu-card">
+                  <figure
+                    class="menu-card"
+                    style={{
+                      color: theme === "light" ? "black" : "#fff",
+                      backgroundColor:
+                        theme === "light" ? "#e0e0eb" : "#191921",
+                      boxShadow:
+                        theme === "light"
+                          ? "rgba(0, 0, 0, 0.4) 0px 2px 4px,rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
+                          : "rgba(179, 179, 0) 5px 5px",
+                    }}
+                  >
                     <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} />
                     <figcaption>
                       <h3 className="video-title">{video.title}</h3>

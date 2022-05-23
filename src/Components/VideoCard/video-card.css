@@ -1,13 +1,9 @@
 figure.menu-card {
-    color: var(--white-color);
     position: relative;
     width: 100%;
-    background-color: var(--white-color);
     text-align: left;
     opacity: 0.95;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 figure.menu-card {
@@ -37,7 +33,6 @@ figure.menu-card figcaption {
 
 figure.menu-card h3 {
     font-weight: 600;
-    color: var(--black-color);
     line-height: 1;
     margin: 0;
     padding-bottom: 0.2rem;
@@ -50,7 +45,6 @@ figure.menu-card p {
     font-size: 0.938rem;
     line-height: 1;
     overflow: hidden;
-    color: var(--black-color);
 }
 
 figure.menu-card button {
@@ -58,7 +52,6 @@ figure.menu-card button {
     padding: 0.625rem 1.25rem;
     background-color: rgba(60, 59, 110, 0.95);
     font-weight: 800;
-    color: var(--white-color);
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 0.938;
@@ -105,14 +98,6 @@ figure img {
     margin-top: 2rem;
 }
 
-.container div,
-span,
-p,
-h2,
-h3 {
-    color: var(--black-color);
-}
-
 .date-three-bars {
     position: relative;
     display: flex;
@@ -134,8 +119,9 @@ h3 {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0.8rem;
-    background-color: var(--primary-color-light);
     font-size: 0.9rem;
+    color: var(--black-color);
+    background-color: var(--primary-color-light);
 }
 
 .options div:hover {

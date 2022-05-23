@@ -3,7 +3,7 @@ import { Footer } from "../../Components/Fixed-Footer/footer";
 import PlaylistCard from "../../Components/PlaylistCard/playlistcard";
 import { Sidebar } from "../../Components/Sidebar/sidebar";
 import { useVideo } from "../../Context/dataContext";
-import emptyLikeImg from "../../Assets/like.png";
+import emptyLikeImg from "../../Assets/naruto.png";
 import { useNavigate } from "react-router-dom";
 const Playlist = () => {
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");

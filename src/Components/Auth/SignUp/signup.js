@@ -1,12 +1,27 @@
 import "../SignUp/signup.css";
 import { useForm } from "../../../custom-hooks/useForm";
 import { useAuth } from "../../../Context/authContext";
+import { useTheme } from "../../../Context/themeContext";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { usePasswordToggle } from "../../../custom-hooks/passwordToggle";
 const SignUp = () => {
   const { formData, errors, formHandler } = useForm();
   const { signUpHandler } = useAuth();
+  const { theme } = useTheme();
+  const { passwordToggle, togglePassword } = usePasswordToggle();
   return (
     <>
-      <div class="container-signup">
+      <div
+        class="container-signup"
+        style={{
+          color: theme === "light" ? "black" : "#fff",
+          backgroundColor: theme === "light" ? "#e0e0eb" : "#191921",
+          boxShadow:
+            theme === "light"
+              ? "0.5rem 0.5rem 0 0 black"
+              : "rgba(179, 179, 0) 5px 5px",
+        }}
+      >
         <div class="left">
           <h1>Sign Up</h1>
           <p>create a new account</p>
@@ -20,6 +35,7 @@ const SignUp = () => {
               id="firstName"
               className="signup-input"
               onChange={formHandler}
+              required
             />
             <label for="firstName" className="lable">
               Last Name
@@ -30,6 +46,7 @@ const SignUp = () => {
               id="lastName"
               className="signup-input"
               onChange={formHandler}
+              required
             />
             <label for="email" className="lable">
               Email
@@ -40,30 +57,45 @@ const SignUp = () => {
               id="email"
               className="signup-input"
               onChange={formHandler}
+              required
             />
 
             <label for="password" className="lable">
               Password
             </label>
             <input
-              type="password"
+             type={passwordToggle.type}
               name="password"
               id="password"
               className="signup-input"
               onChange={formHandler}
+              required
             />
-
+            <div className="hide-show-password-pass">
+              {passwordToggle.eyeIcon ? (
+                <FaRegEye onClick={togglePassword} />
+              ) : (
+                <FaRegEyeSlash onClick={togglePassword} />
+              )}
+            </div>
             <label for="confirm" className="lable">
               Confirm Password
             </label>
             <input
-              type="password"
+            type={passwordToggle.type}
               name="confirmPassword"
               id="confirm"
               className="signup-input"
               onChange={formHandler}
+              required
             />
-
+            <div className="hide-show-password-c-pass">
+              {passwordToggle.eyeIcon ? (
+                <FaRegEye onClick={togglePassword} />
+              ) : (
+                <FaRegEyeSlash onClick={togglePassword} />
+              )}
+            </div>
             <button
               className="button"
               type="submit"

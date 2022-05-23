@@ -8,14 +8,13 @@ import { SinglePlayCard } from "../../Components/SinglePlayCard/singlePlayCard";
 const SinglePlay = () => {
   const { playlistId } = useParams();
   const { Datastate } = useVideo();
-  const {playlist}= Datastate;
+  const { playlist } = Datastate;
   const playlistObj = playlist.find((item) => item._id === playlistId);
-  const { title, videos } = playlistObj;
+  const { videos } = playlistObj;
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   return (
     <>
-      <Footer />
-      {!biggerThan600 && <Sidebar />}
+      {!biggerThan600 ? <Sidebar /> : <Footer />}
       <section className="home-section home-section-like">
         <div className="text">
           {videos.length > 0 ? (

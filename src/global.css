@@ -15,16 +15,32 @@
     width: 100%;
     max-width: 20rem;
     height: auto;
-    
+
 }
-.flex-wrap-row{
+
+.flex-wrap-row {
     justify-content: center;
     align-items: center;
     margin: 3rem auto;
 }
-.flex-wrap-column{
+
+.flex-wrap-column {
     align-items: center;
 }
-.btn-video:hover{
-   background-color: var(--hover-login);
+
+.btn-video:hover {
+    background-color: var(--hover-login);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color-dark)
 }
