@@ -5,15 +5,15 @@ import { Footer } from "../../Components/Fixed-Footer/footer";
 import { useAuth } from "../../Context/authContext";
 import { deleteWatchLaterHandler } from "../../Handlers/watchLaterhandler";
 import { useNavigate } from "react-router-dom";
-import emptyLikeImg from '../../Assets/like.png';
+import emptyLikeImg from "../../Assets/like.png";
 const WatchLater = () => {
   const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
   const { token } = useAuth();
-  const {navigate} = useNavigate();
+  const { navigate } = useNavigate();
   const watchLaterVideos = videos.filter((item) => item.isInWatchLater);
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
-  
+
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}
@@ -24,7 +24,10 @@ const WatchLater = () => {
               watchLaterVideos.map((video) => (
                 <div class="container" key={video._id}>
                   <figure class="menu-card">
-                    <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} />
+                    <img
+                      src={`https://i.ytimg.com/vi/${video._id}/0.jpg`}
+                      onClick={() => navigate(`/video/${video._id}`)}
+                    />
                     <figcaption>
                       <h3 className="video-title">{video.title}</h3>
                       <p className="subtitle">{video.catchName}</p>
@@ -57,7 +60,7 @@ const WatchLater = () => {
             <h2>Heya! It seems you have not saved anything yet!</h2>
             <button
               class="btn-com btn-primary-outline btn-video"
-              onClick={() => navigate("/explore")}
+              onClick={() => navigate("/")}
             >
               {" "}
               Explore Now{" "}

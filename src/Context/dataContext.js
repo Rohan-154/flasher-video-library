@@ -17,6 +17,7 @@ const VideoProvider = ({ children }) => {
     isInWatchLater: false,
     playlist: [],
     search:"",
+    sortByDate: false,
   };
   const [Datastate, dataDispatch] = useReducer(DataReducer, DatainitialState);
   useEffect(() => {

@@ -51,6 +51,11 @@ const DataReducer = (state, action) => {
         ...state,
         search: action.payload,
       };
+      case Abbreviations.SORT_BY_DATE:
+      return {
+        ...state,
+        sortByDate: !state.sortByDate,
+      };
   }
 };
 

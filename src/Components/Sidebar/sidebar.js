@@ -2,13 +2,17 @@ import { useState } from "react";
 import "../Sidebar/sidebar.css";
 import { useMediaPredicate } from "react-media-hook";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const Sidebar = () => {
   const biggerThan600 = useMediaPredicate("(max-width: 700px)");
   const [sideBar, setSideBar] = useState(false);
   useEffect(() => {
     setSideBar((sideBar) => !sideBar);
   }, [biggerThan600]);
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
   return (
     <>
       <div className={`sidebar ${sideBar ? "open" : ""}`}>
@@ -24,8 +28,19 @@ const Sidebar = () => {
           ></i>
         </div>
         <ul className="nav-list">
+          <Link to="/">
+            <li className={splitLocation[1] === "" ? "active-navbar" : ""}>
+              <span>
+                <i class="fa-solid fa-house"></i>
+                <span className="links_name">Home</span>
+              </span>
+
+              <span className="tooltip">Home</span>
+            </li>
+          </Link>
+
           <Link to="/liked">
-            <li>
+            <li className={splitLocation[1] === "liked" ? "active-navbar" : ""}>
               <span>
                 <i class="fa-solid fa-heart"></i>
                 <span className="links_name">Liked</span>
@@ -36,7 +51,11 @@ const Sidebar = () => {
           </Link>
 
           <Link to="/watchLater">
-            <li>
+            <li
+              className={
+                splitLocation[1] === "watchLater" ? "active-navbar" : ""
+              }
+            >
               <span className="span1">
                 <i class="fa fa-clock-o"></i>
                 <span className="links_name">Watch Later</span>
@@ -45,7 +64,9 @@ const Sidebar = () => {
             </li>
           </Link>
           <Link to="/playlist">
-            <li>
+            <li
+              className={splitLocation[1] === "playlist" ? "active-navbar" : ""}
+            >
               <span>
                 <i className="fa fa-play-circle"></i>
                 <span className="links_name">Playlist</span>
@@ -54,7 +75,9 @@ const Sidebar = () => {
             </li>
           </Link>
           <Link to="/history">
-            <li>
+            <li
+              className={splitLocation[1] === "history" ? "active-navbar" : ""}
+            >
               <span>
                 <i className="fa fa-history"></i>
                 <span className="links_name">History</span>
@@ -62,19 +85,21 @@ const Sidebar = () => {
               <span className="tooltip">History</span>
             </li>
           </Link>
+          <a href="https://github.com/Rohan-154">
           <li className="profile">
             <div className="profile-details">
               <div className="name_job">
                 <div className="name">Rohan Dubey</div>
-                <div className="job"> Wannabe Developer</div>
+                <div className="job"> GitHub</div>
               </div>
             </div>
             <i
-              className="bx bx-log-out"
+              className="fa-brands fa-github"
               id="log_out"
-              style={{ color: "white" }}
+              style={{ color: "white",fontSize:"1.5rem"}}
             ></i>
           </li>
+          </a>
         </ul>
       </div>
     </>

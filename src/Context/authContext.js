@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { loginService } from "../services/loginService";
 const { useContext, createContext } = require("react");
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const AuthProvider = ({ children }) => {
   const localStorageToken = JSON.parse(localStorage.getItem("loginToken"));
   const [token, setToken] = useState(localStorageToken?.token || "");
   const [user, setUser] = useState(localStorageToken?.user || "");
+  const navigate = useNavigate();
   const loginAuth = async (email, password) => {
     try {
       const {
@@ -27,7 +29,25 @@ const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
-
+  const signUpHandler = async (formData) => {
+    try {
+      const {
+        data: { encodedToken, createdUser },
+        status,
+      } = await axios.post("/api/auth/signup", formData);
+      if (status === 201) {
+        localStorage.setItem(
+          "loginToken",
+          JSON.stringify({ token: encodedToken, user: createdUser })
+        );
+      }
+      setToken(encodedToken);
+      setUser(createdUser);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const logOutHandler = () => {
     setTimeout(() => {
       localStorage.removeItem("loginToken");
@@ -38,7 +58,9 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ loginAuth, token, user, logOutHandler }}>
+    <AuthContext.Provider
+      value={{ loginAuth, token, user, logOutHandler, signUpHandler }}
+    >
       {children}
     </AuthContext.Provider>
   );

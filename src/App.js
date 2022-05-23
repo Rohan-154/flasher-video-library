@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Login } from "./Components/Auth/Login/login";
+import { SignUp } from "./Components/Auth/SignUp/signup";
 import { Navbar } from "./Components/Navbar/navbar";
 import { PlaylistModal } from "./Components/PlaylistModal/playlistmodal";
 import { PrivateRoute } from "./Components/PrivateRoute/privateRoute";
@@ -13,12 +14,12 @@ import { WatchLater } from "./Pages/WatchLater/watchLater";
 function App() {
   return (
     <div className="App">
-        <PlaylistModal />
+      <PlaylistModal />
       <Navbar />
-    
       <Routes>
-        <Route path="/explore" element={<VideoListing />} />
+        <Route path="/" element={<VideoListing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/video/:videoId" element={<SingleVideo />} />
         <Route
           path="/liked"
@@ -36,7 +37,7 @@ function App() {
             </PrivateRoute>
           }
         />
-         <Route
+        <Route
           path="/history"
           element={
             <PrivateRoute>

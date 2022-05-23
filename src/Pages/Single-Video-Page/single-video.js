@@ -11,17 +11,27 @@ import { watchLaterHandler } from "../../Utils/watchLaterUtils";
 const SingleVideo = () => {
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { videoId } = useParams();
-  const { Datastate, dataDispatch } = useVideo();
+  const { Datastate, dataDispatch, setModal, setmodalData } = useVideo();
   const { videos } = Datastate;
   const { token } = useAuth();
   const singleVideo =
-  videos.length !== 0 && videos?.find((video) => video._id === videoId);
+    videos.length !== 0 && videos?.find((video) => video._id === videoId);
   const location = useLocation();
   const navigate = useNavigate();
+  const addToPlaylist = () => {
+    if (token) {
+      setModal(true);
+      setmodalData(singleVideo);
+    } else {
+      navigate("/login", {
+        replace: true,
+        state: { from: location.pathname },
+      });
+    }
+  };
   return (
     <>
-      <Footer />
-      {!biggerThan600 && <Sidebar />}
+      {!biggerThan600 ? <Sidebar /> : <Footer />}
       <div className="spv-div">
         <div className="single-wrapper">
           <iframe
@@ -85,23 +95,19 @@ const SingleVideo = () => {
                     : "Add To Watch Later"}
                 </span>
               </div>
-              <div className="normal-btn">
+              <div className="normal-btn" onClick={() => addToPlaylist()}>
                 <span>
                   <i className="fa fa-play-circle" aria-hidden="true"></i> Save
                 </span>
               </div>
               <div className="normal-btn">
                 <span>
-                  
                   <i class="fa-solid fa-share-nodes"></i> Share
                 </span>
               </div>
             </div>
             <h2>Description : </h2>
-            <p>
-              
-            {singleVideo.description}
-            </p>
+            <p>{singleVideo.description}</p>
           </div>
         </div>
       </div>

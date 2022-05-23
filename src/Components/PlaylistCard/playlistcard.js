@@ -10,7 +10,6 @@ const PlaylistCard = ({ video }) => {
   const { token } = useAuth();
   const { dataDispatch } = useVideo();
   const navigate = useNavigate();
-  console.log(video);
   return (
     <>
       {videos.length > 0 ? (

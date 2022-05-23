@@ -4,6 +4,14 @@ const SortedCategory = (videos, sortBy) => {
   }
   return videos;
 };
+const sortVideosByDate = (videos, sortByDate) => {
+  if (sortByDate) {
+    videos.sort((a, b) => {
+      return new Date(b.uploaded) - new Date(a.uploaded);
+    });
+  }
+  return videos;
+};
 const SearchVideos = (videos, search) => {
   return search
     ? videos.filter((video) =>
@@ -12,4 +20,4 @@ const SearchVideos = (videos, search) => {
     : videos;
 };
 
-export { SortedCategory, SearchVideos };
+export { SortedCategory, SearchVideos, sortVideosByDate };

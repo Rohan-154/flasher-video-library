@@ -28,7 +28,7 @@ const Playlist = () => {
           <div className="flex-wrap-row">
             <img src={emptyLikeImg} alt="empty-liked" className="img-empty" />
             <div className="flex-wrap-column">
-              <h2>Heya! It seems you have not saved anything yet!</h2>
+              <h2>Heya! Start making your playlist now!</h2>
               <button
                 class="btn-com btn-primary-outline btn-video"
                 onClick={() => navigate("/explore")}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../../Context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../Login/login.css";
+import { Link } from "react-router-dom";
 const Login = () => {
   const { loginAuth, token } = useAuth();
   const [loginForm, setLoginForm] = useState({
@@ -28,9 +29,9 @@ const Login = () => {
           <div className="login-text">
             <h2>Welcome Back</h2>
             <p>Create your account now. </p>
-            <a className="btn" href="">
+            <Link to="/signup" className="btn">
               Sign Up
-            </a>
+            </Link>
           </div>
         </div>
         <div className="col-right">

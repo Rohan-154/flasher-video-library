@@ -24,7 +24,10 @@ const LikedVideo = () => {
               likedVideo.map((video) => (
                 <div class="container" key={video._id}>
                   <figure class="menu-card">
-                    <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} />
+                    <img
+                      src={`https://i.ytimg.com/vi/${video._id}/0.jpg`}
+                      onClick={() => navigate(`/video/${video._id}`)}
+                    />
                     <figcaption>
                       <h3 className="video-title">{video.title}</h3>
                       <p className="subtitle">{video.catchName}</p>
@@ -47,19 +50,19 @@ const LikedVideo = () => {
           </div>
         </section>
       ) : (
-     
-          <div className="flex-wrap-row">
-            <img
-              src={emptyLikeImg}
-              alt="empty-liked"
-              className="img-empty"
-            />
-           <div className="flex-wrap-column">
-           <h2>Heya! It seems you have not liked anything yet!</h2>
-            <button class="btn-com btn-primary-outline btn-video" onClick={()=> navigate('/explore')}> Explore Now </button>
-           </div>
+        <div className="flex-wrap-row">
+          <img src={emptyLikeImg} alt="empty-liked" className="img-empty" />
+          <div className="flex-wrap-column">
+            <h2>Heya! It seems you have not liked anything yet!</h2>
+            <button
+              class="btn-com btn-primary-outline btn-video"
+              onClick={() => navigate("/")}
+            >
+              {" "}
+              Explore Now{" "}
+            </button>
           </div>
-      
+        </div>
       )}
     </>
   );
