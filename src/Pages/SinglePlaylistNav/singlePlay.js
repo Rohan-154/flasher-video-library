@@ -4,6 +4,7 @@ import { Sidebar } from "../../Components/Sidebar/sidebar";
 import { useVideo } from "../../Context/dataContext";
 import { useMediaPredicate } from "react-media-hook";
 import { SinglePlayCard } from "../../Components/SinglePlayCard/singlePlayCard";
+import { useEffect } from "react";
 
 const SinglePlay = () => {
   const { playlistId } = useParams();
@@ -12,6 +13,9 @@ const SinglePlay = () => {
   const playlistObj = playlist.find((item) => item._id === playlistId);
   const { videos } = playlistObj;
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
+  useEffect(() => {
+    document.title = "Playlist";
+  }, []);
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}

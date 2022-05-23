@@ -9,9 +9,8 @@ import { useVideo } from "../../Context/dataContext";
 import { useAuth } from "../../Context/authContext";
 import { watchLaterHandler } from "../../Utils/watchLaterUtils";
 import { useEffect } from "react";
-import { useTheme } from "../../Context/themeContext";
+import { useState } from "react";
 const SingleVideo = () => {
-  const {theme} = useTheme();
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { videoId } = useParams();
   const { Datastate, dataDispatch, setModal, setmodalData } = useVideo();
@@ -21,6 +20,7 @@ const SingleVideo = () => {
     videos.length !== 0 && videos?.find((video) => video._id === videoId);
   const location = useLocation();
   const navigate = useNavigate();
+  const [copy, setCopy] = useState(false);
   const addToPlaylist = () => {
     if (token) {
       setModal(true);
@@ -31,6 +31,15 @@ const SingleVideo = () => {
         state: { from: location.pathname },
       });
     }
+  };
+  useEffect(()=>{
+  document.title = "Single-Video"
+  },[])
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(
+      `https://flasher-15.netlify.app/video/${videoId}`
+    );
+    setCopy(true);
   };
   return (
     <>
@@ -98,14 +107,14 @@ const SingleVideo = () => {
                     : "Add To Watch Later"}
                 </span>
               </div>
-              <div className="normal-btn" onClick={() => addToPlaylist()}>
+              <div className="normal-btn" onClick={() => addToPlaylist()} >
                 <span>
                   <i className="fa fa-play-circle" aria-hidden="true"></i> Save
                 </span>
               </div>
-              <div className="normal-btn">
+              <div  onClick={() => copyToClipboard()} className={copy ? `active-feat` : `normal-btn`}>
                 <span>
-                  <i class="fa-solid fa-share-nodes"></i> Share
+                  <i class="fa-solid fa-share-nodes"></i> {copy ? "Link Copied" : "Share"}
                 </span>
               </div>
             </div>

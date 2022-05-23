@@ -11,6 +11,7 @@ import { Abbreviations } from "../../services/abbreviations";
 import "../Video-Listing/videoListing.css";
 import { useMediaPredicate } from "react-media-hook";
 import { Footer } from "../../Components/Fixed-Footer/footer";
+import { useEffect } from "react";
 const VideoListing = () => {
   const { Datastate, dataDispatch } = useVideo();
   const { categories, videos, sortBy, search, sortByDate } = Datastate;
@@ -22,6 +23,9 @@ const VideoListing = () => {
   const sortedDate = sortVideosByDate(sortedCategory, sortByDate);
   const { theme } = useTheme();
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}

@@ -8,6 +8,7 @@ import "../Liked-Videos/likeVideo.css";
 import { useNavigate } from "react-router-dom";
 import emptyLikeImg from "../../Assets/naruto.png";
 import { useTheme } from "../../Context/themeContext";
+import { useEffect } from "react";
 const LikedVideo = () => {
   const { Datastate, dataDispatch } = useVideo();
   const { videos } = Datastate;
@@ -16,6 +17,9 @@ const LikedVideo = () => {
   const likedVideo = videos.filter((item) => item.isInLiked);
   const biggerThan600 = useMediaPredicate("(max-width: 600px)");
   const { theme } = useTheme();
+  useEffect(() => {
+    document.title = "Liked Videos";
+  }, []);
   return (
     <>
       {!biggerThan600 ? <Sidebar /> : <Footer />}
